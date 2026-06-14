@@ -15,11 +15,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            KosSeeder::class,
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Admin user
+        User::create([
+            'name'     => 'Super Admin',
+            'email'    => 'admin@koskita.com',
+            'password' => bcrypt('password'),
+            'role'     => 'admin',
+        ]);
+
+        // Pemilik kos (sample)
+        User::create([
+            'name'     => 'Budi Santoso',
+            'email'    => 'budi@koskita.com',
+            'password' => bcrypt('password'),
+            'role'     => 'pemilik',
+            'whatsapp' => '6281234567890',
+        ]);
+
+        // Pencari kos (sample)
+        User::create([
+            'name'     => 'Sari Wulandari',
+            'email'    => 'sari@koskita.com',
+            'password' => bcrypt('password'),
+            'role'     => 'pencari',
         ]);
     }
 }
