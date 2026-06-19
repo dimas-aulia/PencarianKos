@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>kosKita Admin Portal - Dashboard Moderasi</title>
+    <title>kosKita Admin - Dashboard Moderasi</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
 <aside class="fixed left-0 top-0 h-screen w-72 flex flex-col bg-surface-container-low border-r border-outline-variant z-40 p-4">
     <div class="mb-12 px-2">
         <h1 class="text-2xl font-bold text-primary">kosKita</h1>
-        <p class="text-sm text-on-surface-variant opacity-70">Portal Manajemen</p>
+        <p class="text-sm text-on-surface-variant opacity-70">Manajemen Kos</p>
     </div>
     <nav class="flex-grow space-y-1">
         <a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-lg px-4 py-2.5 transition-colors duration-150" href="{{ route('admin.dashboard') }}">
@@ -88,7 +88,7 @@
     <!-- Top Bar -->
     <header class="h-16 flex justify-between items-center px-8 bg-surface border-b border-outline-variant sticky top-0 z-30">
         <div class="flex flex-col">
-            <h2 class="text-xl font-semibold text-on-surface">Dashboard Moderasi Admin</h2>
+            <h2 class="text-xl font-semibold text-on-surface">Dashboard Admin</h2>
             <p class="text-sm text-on-surface-variant">Periksa dan validasi pengajuan iklan kos baru di sistem kosKita.</p>
         </div>
         <div class="flex items-center gap-6">
@@ -254,9 +254,10 @@
 
         <!-- Footer -->
         <footer class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant text-sm gap-4">
-            <p>© 2026 kosKita Management. Panel Admin.</p>
+            <p>© 2026 kosKita. All rights reserved</p>
             <div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
                 <a class="hover:text-primary transition-colors" href="#">Tentang Kami</a>
+                <a class="hover:text-primary transition-colors" href="#">Pasang Iklan Kos</a>
                 <a class="hover:text-primary transition-colors" href="#">Pusat Bantuan</a>
                 <a class="hover:text-primary transition-colors" href="#">Syarat & Ketentuan</a>
                 <a class="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
