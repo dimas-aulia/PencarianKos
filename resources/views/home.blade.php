@@ -25,8 +25,8 @@
                 <a href="{{ url('/') }}" class="brand-logo">KosKita</a>
                 <div class="nav-links" id="nav-links">
                     <a href="{{ url('/') }}" class="nav-link active" id="nav-find-rooms">Cari Kamar</a>
-                    <a href="#" class="nav-link" id="nav-for-owners">Untuk Pemilik</a>
-                    <a href="#" class="nav-link" id="nav-about">Tentang Kami</a>
+                    <a href="#" class="nav-link" id="nav-for-owners">Syarat & Ketentuan</a>
+                    <a href="#" class="nav-link" id="nav-about">Pusat Bantuan</a>
                 </div>
             </div>
             <div class="nav-right">
@@ -51,8 +51,8 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu">
             <a href="{{ url('/') }}" class="mobile-link active">Cari Kamar</a>
-            <a href="#" class="mobile-link">Untuk Pemilik</a>
-            <a href="#" class="mobile-link">Tentang Kami</a>
+            <a href="#" class="mobile-link">Pusat Bantuan</a>
+            <a href="#" class="mobile-link">Syarat dan ketentuan</a>
             @auth
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -177,12 +177,13 @@
         <div class="footer-inner">
             <span class="footer-brand">KosKita</span>
             <div class="footer-links">
-                <a href="#" class="footer-link" id="footer-terms">Syarat & Ketentuan</a>
-                <a href="#" class="footer-link" id="footer-privacy">Kebijakan Privasi</a>
-                <a href="#" class="footer-link" id="footer-support">Hubungi Kami</a>
-                <a href="#" class="footer-link" id="footer-list">Pasang Iklan Kos</a>
+                <a href="#" class="footer-link" id="footer-about">Tentang Kami</a>
+                <a href="#" class="footer-link" id="footer-terms">Pasang Iklan Kos</a>
+                <a href="#" class="footer-link" id="footer-privacy">Pusat Bantuan</a>
+                <a href="#" class="footer-link" id="footer-support">Syarat & Ketentuan</a>
+                <a href="#" class="footer-link" id="footer-list">Kebijakan Privasi</a>
             </div>
-            <span class="footer-copy">&copy; 2024 KosKita. Hak cipta dilindungi.</span>
+            <span class="footer-copy">&copy; 2026 KosKita. All rights reserved</span>
         </div>
     </footer>
 

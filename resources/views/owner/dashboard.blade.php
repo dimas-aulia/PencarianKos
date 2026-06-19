@@ -97,7 +97,7 @@
 <aside class="fixed left-0 top-0 h-screen w-[280px] z-50 flex flex-col p-4 bg-surface-container-low border-r border-outline-variant">
     <div class="mb-8 px-2">
         <a href="{{ url('/') }}" class="text-2xl font-bold text-primary no-underline">kosKita</a>
-        <p class="text-xs text-secondary mt-0.5">Owner Portal</p>
+        <p class="text-xs text-secondary mt-0.5">Pemilik Kos</p>
     </div>
     <nav class="flex-1 space-y-1">
         <a class="flex items-center gap-4 px-4 py-2.5 sidebar-active" href="{{ route('owner.dashboard') }}">
@@ -381,9 +381,10 @@
 
     <!-- Footer -->
     <footer class="mt-auto pt-8 border-t border-outline-variant flex justify-between items-center pb-8">
-        <p class="text-sm text-secondary">© 2026 kosKita Management. All rights reserved.</p>
+        <p class="text-sm text-secondary">© 2026 kosKita. All rights reserved.</p>
         <div class="flex gap-6">
             <a class="text-xs font-semibold text-secondary hover:text-primary transition-colors" href="#">Tentang Kami</a>
+            <a class="text-xs font-semibold text-secondary hover:text-primary transition-colors" href="#">Pasang Iklan Kos</a>
             <a class="text-xs font-semibold text-secondary hover:text-primary transition-colors" href="#">Pusat Bantuan</a>
             <a class="text-xs font-semibold text-secondary hover:text-primary transition-colors" href="#">Syarat & Ketentuan</a>
             <a class="text-xs font-semibold text-secondary hover:text-primary transition-colors" href="#">Kebijakan Privasi</a>
