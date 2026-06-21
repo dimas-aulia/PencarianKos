@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Models;
+//mantap kale
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+//firdi
+//hafid
+
+// pantek
 
 class Kos extends Model
 {
     protected $table = 'kos';
-
     protected $fillable = [
         'user_id',
         'nama_kos',
