@@ -1,5 +1,7 @@
 <?php
 
+//halo ini dimas
+// saya ngerjakin ini
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
