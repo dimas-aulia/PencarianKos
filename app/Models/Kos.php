@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 //hafid
 class Kos extends Model
 {
+    //firdi
     protected $table = 'kos';
     protected $fillable = [
         'user_id',
