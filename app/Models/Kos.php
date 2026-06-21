@@ -1,5 +1,5 @@
 <?php
-
+//firdiiigit add .
 namespace App\Models;
 //mantap kale
 
