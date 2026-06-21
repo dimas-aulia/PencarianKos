@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-//firdi
+
 class Kos extends Model
 {
     protected $table = 'kos';
@@ -26,7 +26,7 @@ class Kos extends Model
         'nama_pemilik',
         'status',
     ];
-
+//firdigit
     protected $casts = [
         'foto_galeri' => 'array',
     ];
