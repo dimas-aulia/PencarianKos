@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+//mantap kale
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
