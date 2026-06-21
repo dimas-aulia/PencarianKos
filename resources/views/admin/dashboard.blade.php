@@ -254,7 +254,7 @@
 
         <!-- Footer -->
         <footer class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant text-sm gap-4">
-            <p>© 2026 kosKita Management. Panel Admin.</p>
+            <p>2026 kosKita Management. All rights reserved.</p>
             <div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
                 <a class="hover:text-primary transition-colors" href="#">Tentang Kami</a>
                 <a class="hover:text-primary transition-colors" href="#">Pusat Bantuan</a>

@@ -79,7 +79,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-xxl">
             <div class="max-w-md" id="hero-text">
                 <h2 class="font-headline-xl text-white mb-sm">Temukan Ruang Nyaman Anda</h2>
-                <p class="font-body-lg text-white/90">Ribuan pilihan kos berkualitas untuk mahasiswa dan profesional muda di seluruh Indonesia.</p>
+                <p class="font-body-lg text-white/90">Ribuan pilihan kos berkualitas untuk mahasiswa dan pekerja di seluruh Indonesia.</p>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@
     <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-lg w-full max-w-max-width mx-auto">
         <div class="mb-md md:mb-0">
             <span class="font-headline-sm text-headline-sm font-bold text-primary">KosKita</span>
-            <p class="font-body-sm text-body-sm text-on-surface-variant mt-sm md:mt-0">© 2024 KosKita. Hak cipta dilindungi.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-sm md:mt-0">2026 kosKita Management. All rights reserved.</p>
         </div>
         <div class="flex flex-wrap justify-center gap-lg">
             <a class="font-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Syarat & Ketentuan</a>
