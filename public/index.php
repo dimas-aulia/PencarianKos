@@ -2,6 +2,8 @@
 
 //halo ini dimas
 // saya ngerjakin ini
+
+// ini perubah baru sekali
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
