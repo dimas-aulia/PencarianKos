@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 //firdi
 //hafid
-
+// HWLOO 
 // pantek
 class Kos extends Model
 {
