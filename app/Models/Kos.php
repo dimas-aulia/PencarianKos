@@ -1,5 +1,6 @@
 <?php
 
+//kontol
 namespace App\Models;
 //mantap kale
 
