@@ -230,13 +230,14 @@
                                         <a href="{{ route('owner.kos.edit', $kos->id) }}" class="text-primary hover:scale-110 transition-transform p-1" title="Edit">
                                             <span class="material-symbols-outlined">edit</span>
                                         </a>
-                                        <form method="POST" action="{{ route('owner.kos.destroy', $kos->id) }}" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kos ini?')">
+                                        <form method="POST" action="{{ route('owner.kos.destroy', $kos->id) }}" id="delete-form-{{ $kos->id }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-error hover:scale-110 transition-transform bg-transparent border-none cursor-pointer p-1" title="Hapus">
-                                                <span class="material-symbols-outlined">delete</span>
-                                            </button>
                                         </form>
+                                        <button type="button" class="text-error hover:scale-110 transition-transform bg-transparent border-none cursor-pointer p-1" title="Hapus"
+                                                onclick="openDeleteModal('{{ $kos->id }}', '{{ addslashes($kos->nama_kos) }}')">
+                                            <span class="material-symbols-outlined">delete</span>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -392,6 +393,154 @@
     </footer>
 </main>
 
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="delete-modal-overlay" onclick="closeDeleteModal(event)">
+    <div class="delete-modal-container" onclick="event.stopPropagation()">
+        <!-- Animated Warning Icon -->
+        <div class="delete-modal-icon-wrap">
+            <div class="delete-modal-icon-bg">
+                <span class="material-symbols-outlined delete-modal-icon">warning</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <h3 class="text-xl font-bold text-on-surface mt-2">Hapus Data Kos?</h3>
+        <p class="text-sm text-secondary mt-2 text-center leading-relaxed">
+            Apakah Anda yakin ingin menghapus<br>
+            <span id="deleteKosName" class="font-semibold text-on-surface"></span>?
+        </p>
+        <p class="text-xs text-red-400 mt-1">Tindakan ini tidak bisa dibatalkan.</p>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 mt-6 w-full">
+            <button type="button" class="delete-modal-btn-cancel" onclick="closeDeleteModal()">
+                <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+                Tidak, Batal
+            </button>
+            <button type="button" id="deleteConfirmBtn" class="delete-modal-btn-confirm">
+                <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
+                Ya, Hapus
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Delete Modal Overlay */
+    .delete-modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .delete-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Modal Container */
+    .delete-modal-container {
+        background: #ffffff;
+        border: 1px solid #e0e3e5;
+        border-radius: 1.25rem;
+        padding: 2rem 2.5rem;
+        max-width: 400px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .delete-modal-overlay.active .delete-modal-container {
+        transform: scale(1) translateY(0);
+    }
+
+    /* Warning Icon */
+    .delete-modal-icon-wrap {
+        position: relative;
+    }
+    .delete-modal-icon-bg {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: iconPulse 2s ease-in-out infinite;
+    }
+    .delete-modal-icon {
+        font-size: 36px !important;
+        color: #dc2626;
+        font-variation-settings: 'FILL' 1, 'wght' 600;
+    }
+    @keyframes iconPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.2); }
+        50% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+    }
+
+    /* Buttons */
+    .delete-modal-btn-cancel {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #e0e3e5;
+        border-radius: 0.75rem;
+        background: #f7f9fb;
+        color: #505f76;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .delete-modal-btn-cancel:hover {
+        background: #e6e8ea;
+        border-color: #bbcabf;
+        transform: translateY(-1px);
+    }
+    .delete-modal-btn-cancel:active {
+        transform: scale(0.97);
+    }
+    .delete-modal-btn-confirm {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 0.75rem;
+        background: linear-gradient(135deg, #dc2626, #b91c1c);
+        color: #ffffff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 14px rgba(185, 28, 28, 0.3);
+    }
+    .delete-modal-btn-confirm:hover {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        box-shadow: 0 6px 20px rgba(185, 28, 28, 0.4);
+        transform: translateY(-1px);
+    }
+    .delete-modal-btn-confirm:active {
+        transform: scale(0.97);
+    }
+</style>
+
 <script>
     // Dropzone click handlers
     document.querySelectorAll('[id^="dropzone-"]').forEach(zone => {
@@ -431,6 +580,38 @@
             label.closest('.text-center').querySelector('.text-secondary').textContent = names.length > 60 ? names.substring(0, 60) + '...' : names;
         }
     }
+
+    // ===== Delete Confirmation Modal =====
+    let deleteFormId = null;
+
+    function openDeleteModal(kosId, kosName) {
+        deleteFormId = kosId;
+        document.getElementById('deleteKosName').textContent = '"' + kosName + '"';
+        document.getElementById('deleteModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDeleteModal(e) {
+        // If called from overlay click, only close if clicking the overlay itself
+        if (e && e.target !== e.currentTarget) return;
+        document.getElementById('deleteModal').classList.remove('active');
+        document.body.style.overflow = '';
+        deleteFormId = null;
+    }
+
+    document.getElementById('deleteConfirmBtn').addEventListener('click', function() {
+        if (deleteFormId) {
+            document.getElementById('delete-form-' + deleteFormId).submit();
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeDeleteModal();
+        }
+    });
 </script>
 </body>
 </html>
+
